@@ -1,96 +1,223 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10113367&assignment_repo_type=AssignmentRepo)
-# Course Project
+# Report
 
-## Aim
-The aim of the course project is to give you an opportunity to synthesize topics you have learned during the Object-oriented Programming Course into a single system embedded in a real-world engineering challenge. You should have already selected a topic for your project. There are three deliverables: (1) functioning program, (2) report, and (3) self-assessment. You should study the provided evaluation scheme to understand how your work will be assessed.
+# Introduction
+Calendar systems are essential tools for organizing and keeping track of time. Different cultures and countries have developed their own calendar systems based on solar or lunar cycles. While the Gregorian calendar is the internationally accepted civil calendar, understanding other calendar systems such as the Ethiopian and Hijri calendars is just as important. These calendars are used as civil and ecclesiastical calendars in Ethiopia, Eritrea, and for determining Islamic holidays and rituals.
 
-## Assessment
-1.	__Program (15 points)__: your program should be implemented to solve in a simplistic way your chosen project topic. It should not need to be overly complicated, but it should demonstrate optimizations for speed and memory, as well as object-oriented programming paradigms. The code should be readable, with a clear output to the console.
-    - __Upload your code files directly to the _code/_ directory in this repository. The code should run straight from Github codespaces.__
+In a globalized world, the need for converting dates between different calendar systems is paramount. Converting dates can be challenging, especially for individuals who work across different cultures and need to schedule appointments and events with people from different parts of the world. Hence, there is a need for a user-friendly program that allows for the conversion of dates between different calendar systems.
 
-2.	__Report (18 points)__: your report should provide an educated reader with enough information to understand the challenge your program attempts to solve, how your program is structured, and the reason behind the decisions you made. 
-    - You should structure your report with headings/sub-headings that include an “introduction”, your “approach”, and your “solution”. 
-    - You should also include a diagram (high-level flowchart or UML diagram) that defines how your program is structured (e.g. using [draw.io](draw.io)). 
-    - You should also highlight implementation of optimizations and object-oriented paradigms through the use of code snippets (do no copy and paste large sections of code). 
-    - A length of 3 to 6 pages in single-spaced 12pt font is reasonable for a report. Please do not plagiarize.
-    - __Upload your report in Markdown format to this repository in the `Report.md` file .__
+# Approach
+The project aimed to design and develop a program that would enable users to convert dates between the Gregorian, Ethiopian, and Hijri calendar systems. Additionally, the program would allow users to add and subtract dates in each calendar system and bookmark converted dates for future reference.
 
-3.	__Self-assessment (2 points)__: you should study and submit the evaluation scheme below along with your report. It defines how you will be evaluated and what constitutes excellent work.
+To achieve this, the project utilized object-oriented programming principles, creating a date class and a calendar class that defined the general structure of the derived calendar classes, including the Gregorian, Ethiopian, and Hijri calendars. The project utilized polymorphism, inheritance, and friendship concepts to access the month and day data values of the calendar class, ensuring efficient data management.
 
-## Self-assessment (2 points)
-To ensure you understand the requirements of the project, a checklist in (a) provides a summary of what you should understand and submit. 
+To create accurate conversion functions, the project implemented Zeller's congruence formula and other conversion algorithms found online. Additionally, C++ time libraries were used to get the current time, and string stream libraries were used to convert the time output to a stream, enabling the getline function to be applied to it. The program included features for bookmarking converted dates, and these bookmarks were saved in a .txt file. To enhance the user experience, some color and atmosphere were added to the interface using bash commands.
 
-### (a) Check-list
-Check the list below as they are completed using the [x] symbol.
-- [x] Read this document.
-- [x] Understand the evaluation scheme.
-- [x] Submit code files into this repo under the __code/__ directory.
-- [x] Ensure code files can be executed in a Github codespace environment.
-- [x] Provide a screenshot of your code's output.
-- [x] Submit your report in `Report.md`.
-- [x] Complete the self-assessment according to the defined evaluation scheme.
-  - [x] Complete the self-assessment table (b) below.
-  - [x] Enumerate location of implemented concepts in section (c) below.
+To optimize the program's speed and memory, the project employed various techniques such as inline functions, reference operators, pointers, and vectors. Furthermore, exception handling was implemented to guide the user in inputting correct values, but the program might crash if the user inputs an incorrect month (such as a negative number). Although the program gives accurate results in most instances, it may sometimes have an error of a day during conversion due to the limitations of the algorithms used. Thus, enhancing the efficiency of the conversion algorithms could be an area for further improvement.
 
-I declare that I have read and completed the above checked item in the list: [Insert name], [Insert date]
+# Potential Applications:
 
-### (b) Complete this table:
-The table below lists the elements in which you project will be assessessed. Please insert a self-assessment score for each element you implemented in the project in the table section (b).
+The date conversion program has potential applications in real-world scenarios, including scheduling, event planning, and historical research. For example, event planners could use it to schedule meetings across different time zones, while historians could use it to convert historical dates between different calendar systems accurately. The program is an essential tool that can significantly impact various industries, and improving its accuracy and efficiency can only make it more useful.
 
-|              | Points | Student's Evaluation     | Instructor's Evaluation |
-| ------------ | ------ | ------------------------ | ----------------------- |
-| __Code:__    |        |                          |                         |
-| Readibility  | 3      | [2] |                         |
-| Optimization | 3      | [3] |                         |
-| OOP Concepts | 3      | [3] |                         |
-| Output       | 3      | [3] |                         |
-| Correctness  | 3      | [3] |                         |
-| **Report:**  |        |                          |                         |
-| Engaging     | 3      | [3] |                         |
-| Grammar      | 3      | [2] |                         |
-| Structure    | 3      | [3] |                         |
-| Visual       | 3      | [2] |                         |
-| Content      | 3      | [3] |                         |
-| References   | 3      | [3] |                         |
-| Total        | 33     | [30] |                         |
+# Solution
+  #  Classes
+Date Class:
+The date class is an essential component of the calendar class, used to create and manipulate date objects. These objects are created with four primary attributes: day, month, year, and the calendar system they belong to. The day and month names are determined automatically using Zeller’s congruence algorithm, which is a widely used method for calculating the day of the week for any given date. This algorithm takes into account the day, month, and year of the date in question and uses a series of mathematical calculations to determine the corresponding day of the week. Once a date object has been instantiated, it can be used in conjunction with the calendar class to perform a variety of date-related operations.
 
+Calendar class:
+This class is created with a vector of dates, a pointer to days array, and a pointer to months array as attributes. This class also prints the calendar in a tabulated format with the current date colored red.
 
-### (c) Fill in this section:
-In addition to completing the self-assessment table, enumerate the optimization and OOP concepts you implemented and the filename / line number of your implementation. You may list this information after the table in the designated placeholder section (b).
+Calendar GC:
+The calendarGC class is designed to initialize the Gregorian calendar object. It sets the calendarType variable to "Gregorian" and defines an array gregorianMonths containing the number of days in each month of the Gregorian calendar. The constructor initializes a Date variable to the current Gregorian date and calls the checkForLeap function to check if it's a leap year. It then creates two string arrays days and months with the names of days and months respectively. The constructor calculates the first day of the current month using the day_of_week function and adds Date objects to the Dates vector to represent the current month. There are also several other functions defined in the class to convert between different calendar systems.
 
-**Optimization**: enumerate the concepts implemented for optimization and their line numbers below.
+Calendar ET:
+The calendarET class which inherits from a base class Calendar is designed to initialize the Ethiopian calendar object. The calendarET class provides functions to convert Gregorian calendar dates to Ethiopian calendar dates and to check for leap years in the Ethiopian calendar. It also includes a private variable ethipianMonthdays which stores the number of days in each month of the Ethiopian calendar and private variables days and months which store the names of the days and months in the Ethiopian calendar, respectively. The class also has a function to convert Hijri calendar dates to Ethiopian calendar dates by first converting to the Gregorian calendar.
 
-- *Concept #1*: [Dynamic memory allocation], *File name / Line numbers(s)*: [calendarGC/ 23]
-- *Concept #2*: [Pointer to objects], *File name / Line numbers(s)*: [calendarSystem.cpp/ 80]
-- *Concept #3*: [Inline functions], *File name / Line numbers(s)*: [calendarSystem.cpp/ 17]
-- *Concept #4*: [vectors], *File name / Line numbers(s)*: [calendar.h/ 15]
+CalendarIS:
+The "calendarIS" class extends the calendar class to initialize the Hijri calendar object. It includes functions to convert dates from the Gregorian calendar to the Hijri calendar, calculate the last day of a month on both calendars, and check if a year is a leap year on the Hijri calendar. The program also includes a function to convert dates from the Ethiopian calendar to the Hijri calendar.
 
-**OOP Concepts**: enumerate the concepts implemented that demonstrate an OOP approach to programming, and their location in your code (line numbers) below.
+Bookmark:
+This code represents a bookmark for converting dates. It has a private member identifier that holds the name of the file where the bookmarks are stored, and static member ID that is incremented every time a new bookmark is added. The class has a default constructor that opens the file for appending and for reading. It also has a public method addBookMark that takes two Date objects as arguments and adds the bookmark to the file. The addBookMark method prompts the user to enter the type of date conversion and writes the bookmark information to the file in a specific format.
 
-- *Concept #1*: [STL], *File name / Line numbers(s)*: [calendar.h/ 15]
-- *Concept #2*: [Friendship], *File name / Line numbers(s)*: [date.h/ 51]
-- *Concept #3*: [operator overloading], *File name / Line numbers(s)*: [Date/ 107]
-- *Concept #4*: [Exception Handling], *File name / Line numbers(s)*: [calendarSystem.cpp/ 97]
+Functions:
+The AdderSubtractor() function prompts the user to choose between adding or subtracting days, months, and years from a start date. It then takes the input of the start date and the interval to be added/subtracted, performs the operation and displays the resulting date.
 
-## Evaluation Scheme (Rubric)
-The evaluation scheme below defines how your work will be assessed.
+The conversionPrompt() function prompts the user to choose between six options for date conversion. After the user chooses an option, the function takes input of a date in Gregorian format and converts it to one of the other calendar systems. The converted date is then displayed.
 
+The UserInput() function is an inline function that prompts the user to enter a date in numbers and takes the input as a reference to a Date object.
 
+The Greeting() function displays a greeting message with information about the program's two functionalities, prompting the user to select one of the options. If the user selects option 1, the function calls the AdderSubtractor() function, and if the user selects option 2, the function calls the conversionPrompt() function.
 
-|                        | 3 points                                                     | 2 points                                                     | 1 point                                                      | 0 points                                                     |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Code (15 points)**   |                                                              |                                                              |                                                              |                                                              |
-| Readibility            | The code is exceptionally well organized and very easy to follow, with extensive use of comments, functions, and files to organize code. | The code is fairly easy to read, with moderate use of comments, functions, and files to organize code. | The code is readable only by someone who knows what it is supposed to be doing. | The code is poorly organized and very difficult to read.     |
-| Optimization           | Code implements at least four coding paradigms / topics covered in the class that aid in code optimizations for speed and memory. | Code  implements a few coding paradigms / topics covered in the class that aid in  code optimizations for speed and memory. | Code implements one coding paradigms / topics covered in the class that aid in code optimizations for speed and memory. | Code  implements no coding paradigms / topics covered in the class that aid in code  optimizations for speed and memory. |
-| OOP Concepts           | Code implements at least four object-oriented coding paradigms / topics covered in the class. | Code implements a few of object-oriented coding paradigms / topics covered in the class. | Code implements a few of object-oriented coding paradigms / topics covered in the class. | Code  implements no object-oriented coding paradigms / topics covered in the class. |
-| Output                 | Code functionality prints very clearly to the console with good use of headers and newlines. | Code functionality prints to the console with fair use of headers and newlines. | Code functionality rarely prints to the console.             | Code does not print to console to demonstrate functionality. |
-| Correctness            | Code runs perfectly with no errors.                          | Code  runs with a few errors.                                | Code  runs with several errors.                              | Code  does not run at all.                                   |
-| **Report (18 points)** |                                                              |                                                              |                                                              |                                                              |
-| Engaging               | Writing was deeply engaging, with extensive use of real-word examples, suggesting deep thought in content delivery. | Writing was moderately engaging, with some reference to real-world examples. | Writing made no use of real-world examples.                  | Writing was difficult to follow and composed in a rush.      |
-| Grammar                | Grammar is perfect.                                          | Some number of grammatical errors.                           | Significant number of grammatical errors, indicating work was reviewed but not carefully. | Full  of grammatical errors, indicating work was only a first draft. |
-| Structure              | Extensive use of spacing between paragraphs, headings, sub-headings. | Moderate use of spacing between paragraphs, headings, sub-headings. | Limited use of spacing between paragraphs, headings, sub-headings. | No use  of spacing between paragraphs, headings, sub-headings. |
-| Visual                 | Excellent  use of flowchart / diagram to present logic of code system. | Fair use of flowchart / diagram to present logic of code system. | Poor  use of flowchart / diagram to present logic of code system. No clear  structure, use of color scheme, with unreadable text. | No use  of flowchart / diagram to present logic of code system. |
-| Content                | Report highlights *all* key elements of code, and presents code snippets within document to help describe system. | Report highlights *most* key elements of code, and presents code snippets within document to help describe system. | Report highlights *some* key elements of code, and *poorly* presents code snippets within document in an attempt to describe system. | Report  does not explicitly highlight key elements of code, with either no code  snippets, or inserts a dump of the whole code base with little effort. |
-| References             | Four or more references cited in bibliography and writing which may include articles, code blogs/repos, news stories, and website. | Less than four references cited.                             | Almost no references. Writing makes claims that should be supported by references. | No  references cited, and writing makes claims that should be supported by  references. |
+The BookmarkPrompt() function prompts the user to decide whether to bookmark a particular date and stores the bookmark in a BookMark object.
 
+The restart() function prompts the user to decide whether to restart the program or not. If the user chooses to restart, the function sets the input string to "Y", and the program continues. If the user chooses not to restart, the function exits the program.
 
+The main function creates an infinite loop which in which the program will run. The Greeting()  and restart() functions are called from the loop and the loop will break when the user decides to exit the program through the restart() function.
+
+# UML diagram
+![UML.png](images/UML.png)
+
+# Implementation of Object-Oriented paradigms
+
+C++ Standard Template Library (STL):
+This program utilizes the Standard Template Library as one of the object-Oriented Programming
+paradigms. One of the STL used in the program is the vector STL that allows the program to use
+the user data structure of types of Vector to store the objects of dates.
+
+```c++
+protected:
+      vector<Date> Dates;
+for ( int i = 0; i< gregorianMonths[d.getMonth()+1]+firstDay; i++){
+        d.setDay((i>=firstDay) ? (i-firstDay)+1 : 0);
+        Dates.push_back(d);
+      }
+```
+
+Inheritance:
+The program utilizes the concept of Inheritance to allow some classes to inherit data variables
+and functions of another class.The classes “calendarGC”, “calendatET”, and “calendarIS” inherit from “calendar.”
+
+```
+class calendarGC:public Calendar {
+  private:
+    string calendarType = "Gregorian";
+
+```
+```
+class calendarIS: public Calendar {
+private:
+    const int IslamicEpoch = 227014;
+
+```
+```
+class calendarET: public Calendar {
+  private:
+    friend class calendarGC;
+
+```
+Exception Handling:
+This program utilizes the exception handling concept. Exception handling is essential in
+encountering errors that the program did not anticipate. In the program, exception handling was
+used to detect when the user is asked to enter their age. The program asks the user to inout their choice as integer between 1 and 6 and if they input an invalid value exception is thrown.
+```
+try {
+  switch (choice)
+  {
+  case 1:
+    UserInput(d);
+    d_conv=EC.Greg_to_Ethio(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 2:
+    UserInput(d);
+    d_conv=IC.Greg_to_Hijri(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 3:
+    UserInput(d);
+    d_conv=GC.Hijri_to_Greg(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 4:
+    UserInput(d);
+    d_conv=GC.Ethio_to_Greg(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 5:
+    UserInput(d);
+    d_conv=IC.Ethio_to_Hijri(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 6:
+    UserInput(d);
+    d_conv=EC.Hijri_to_Ethio(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+  case 7:
+    B.viewBookmarkedDates();
+    break;
+  default:
+    throw("");
+    break;
+  }
+  break;
+  }
+  catch(...) {
+    cout<<"\033[91mIncorrect input.\033[0m\n";
+    cout<<"\033[92m Input 1/2/3/4/5/6 >> \033[0m";
+    cin>> choice;
+  } 
+  }
+
+```
+Friendship and operator overloading:
+A friend function can access private and protected members of other classes in which it is declared as a friend. I have overloaded different operators and declared them as friend functions of the date class. This will allow the overloaded operators to have access to the private members of the Date class they operate in.
+```
+friend ostream& operator<<(ostream& os, const Date& dt);
+friend istream& operator>>(istream& is, Date& d);
+friend Date operator+(const Date& d1, const Date& d2);
+friend Date operator-(const Date& d1, const Date& d2);
+```
+```
+ostream& operator <<(ostream& os, const Date& dt) {
+        os <<dt.day<<", "<<dt.month<< " "<<dt.day_num<<", "<<dt.year
+        <<" ("<<to_string(dt.day_num)+"/"+to_string(dt.month_num) + "/"+ to_string(dt.year)<<")"<<endl;
+        return os;
+    }
+istream& operator>>(istream& is, Date& d) {
+    int day, month, year;
+    cout << "Enter day: ";
+    is >> day;
+    cout << "Enter month: ";
+    is >> month;
+    cout << "Enter year: ";
+    is >> year;
+    
+    d = Date(day, month, year);
+    return is;
+}
+```
+Implementation of optimizations
+Dynamic memory allocation:
+The program utilizes dynamic memory allocation to optimize the memory storage of the
+Program. Dynamic memory allocation is  used in different parts of the program one example is when dynamically creating arrays to store days and months in different calendar systems.
+
+```
+class Calendar {
+    protected:
+      vector<Date> Dates;
+      string *days;
+      string *months;
+```
+```
+calendarIS() {
+      days = new string[7]{"ٱلْأَحَد(S)", "الاِثْنَيْن (M)","ٱلثُّلَاثَاء (T)", "ٱلْأَرْبِعَاء (W)", "ٱلْخَمِيس (Th)","ٱلْجُمْعَة (F)","ٱلسَّبْت (Sa)"};
+      months = new string[12]{"ٱلْمُحَرَّم","صَفَر","رَبِيع ٱلْأَوَّل","رَبِيع ٱلْآخِر","جُمَادَىٰ ٱلْأُولَىٰ","جُمَادَىٰ ٱلْآخِرَة","رَجَب","شَعْبَان","رَمَضَان","شَوَّال","ذُو ٱلْقَعْدَة","ذُو ٱلْحِجَّة"};
+```
+Inline functions:
+The program uses the inline functions to optimize the speed of the program during execution.
+The inline function is used to propt for user input.
+```
+inline void UserInput(Date& d){
+  cout<<"Please enter the date in numbers only."<<endl;
+  cin>>d;
+}
+```
+Pointers to objects:
+The program uses functions that pass by reference to optimize the memory and speed of code
+Execution. When date objects are passed throughout the program they are passed by reference.
+One example is the following;
+
+```
+case 1:
+    UserInput(d);
+    d_conv=EC.Greg_to_Ethio(&d);
+    cout<<"Your converted date is: "<<*d_conv;
+    break;
+```
+# Bibliography
+“The History of the Calendar.” Calendar, 6 Feb. 2023, https://www.calendar.com/history-of-the-calendar/. 
+Maunder, Chris. “How to Change Text Color in a Linux Terminal.” CodeProject, CodeProject, 7 Apr. 2022, https://www.codeproject.com/Articles/5329247/How-to-change-text-color-in-a-Linux-terminal. 
+“Convert Gregorian to Hijri Date in Javascript.” Gist, https://gist.github.com/irfanbaigse/41b0f5054dcc50e62b5da6e5b4be9e37. 
+Zenysis. “Zenysis/Ethiopian-Date: Ethiopian-Date Is a Date Converter from Ethiopian Calendar to Gregorian Calendar and Vice-Versa.” GitHub, https://github.com/Zenysis/ethiopian-date. 
+“C++ programming language,” GeeksforGeeks. [Online]. Available:
+https://www.geeksforgeeks.org/c-plus-plus/?ref=shm.
