@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "editor.formatOnSave": "True",
+        "xstring": "cpp",
+        "string": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "iomanip": "cpp",
+        "cmath": "cpp"
+    }
+}
